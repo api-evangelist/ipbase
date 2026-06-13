@@ -1,0 +1,86 @@
+name: ipbase Plans and Pricing
+description: Pricing plans for the ipbase IP geolocation API, operated by Everapi GmbH. All plans include HTTPS encryption and location data. Yearly billing provides a 20% discount.
+url: https://ipbase.com/pricing/
+plans:
+
+  - name: Free
+    price: 0.00
+    currency: USD
+    interval: month
+    description: Free tier for developers to get started with IP geolocation lookups.
+    requests: 150
+    rate_limit: 10 requests/minute
+    api_keys: 1
+    features:
+      - HTTPS Encryption
+      - Location Data
+
+  - name: Small
+    price: 9.99
+    currency: USD
+    interval: month
+    description: Entry-level paid plan for small applications and low-volume use cases.
+    requests: 65000
+    rate_limit: none
+    api_keys: 1
+    features:
+      - HTTPS Encryption
+      - Email Support
+      - Location Data
+      - Currency Data
+      - Timezone Data
+
+  - name: Medium
+    price: 39.99
+    currency: USD
+    interval: month
+    description: Most popular plan for growing applications needing security data and team support.
+    requests: 650000
+    rate_limit: none
+    api_keys: 2
+    features:
+      - Sandbox API Keys
+      - HTTPS Encryption
+      - Email Support
+      - Location Data
+      - Currency Data
+      - Timezone Data
+      - Security Data
+      - Team Management
+
+  - name: Large
+    price: 89.99
+    currency: USD
+    interval: month
+    description: High-volume plan for production applications with enterprise features.
+    requests: 2500000
+    rate_limit: none
+    api_keys: 5
+    features:
+      - Sandbox API Keys
+      - HTTPS Encryption
+      - Email Support
+      - Location Data
+      - Currency Data
+      - Timezone Data
+      - Security Data
+      - Tailored Support
+      - Team Management
+      - IP White-/Blacklisting
+      - URL Whitelisting
+      - Custom SLA
+      - Overages
+      - Custom Features
+
+  - name: Custom
+    price: custom
+    currency: USD
+    interval: month
+    description: Custom plan for enterprise customers needing more than 2.5 million monthly requests.
+    requests: custom
+    rate_limit: none
+    api_keys: custom
+    features:
+      - All Large Plan features
+      - Custom Request Volume
+      - Custom Configuration

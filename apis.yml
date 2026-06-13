@@ -1,0 +1,61 @@
+aid: ipbase
+name: ipbase
+description: ipbase is an IP geolocation REST API providing accurate location, currency, timezone, connection type, proxy/VPN detection, and security threat data for any IPv4 or IPv6 address. Operated by Everapi GmbH, the API serves businesses needing programmatic IP address intelligence for fraud detection, content localization, and data-driven decisions.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/ipbase/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - IP Geolocation
+  - IP Address
+  - Geolocation
+  - Security
+  - VPN Detection
+  - Proxy Detection
+  - Timezone
+  - Currency
+  - ASN
+  - Threat Intelligence
+apis:
+  - name: ipbase IP Geolocation API
+    description: REST API providing geolocation, timezone, currency, connection, and security data for IPv4 and IPv6 addresses. Returns location coordinates, city, region, country, ISP, ASN, proxy/VPN/Tor detection, and threat scores.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://ipbase.com
+    baseURL: https://api.ipbase.com/v2
+    tags:
+      - IP Geolocation
+      - Security
+      - Timezone
+      - Currency
+    properties:
+      - type: Documentation
+        url: https://ipbase.com/docs/
+      - type: OpenAPI
+        url: https://ipbase.com/docs/info
+      - type: Pricing
+        url: https://ipbase.com/pricing/
+common:
+  - type: Website
+    url: https://ipbase.com
+  - type: Documentation
+    url: https://ipbase.com/docs/
+  - type: GitHubOrg
+    url: https://github.com/everapihq
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/everapi/
+  - type: Pricing
+    url: https://ipbase.com/pricing/
+  - type: StatusPage
+    url: https://ipbase.freshstatus.io/
+  - type: X
+    url: https://twitter.com/everapi
+  - type: Plans
+    url: plans/ipbase-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/ipbase-rate-limits.yml
+  - type: FinOps
+    url: finops/ipbase-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

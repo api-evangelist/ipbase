@@ -1,0 +1,57 @@
+name: ipbase FinOps
+description: Financial operations guidance for managing ipbase API costs. ipbase uses a monthly request quota model with optional yearly billing discounts.
+url: https://ipbase.com/pricing/
+
+cost_model:
+  type: subscription
+  billing_intervals:
+    - monthly
+    - yearly
+  yearly_discount: 20%
+  overage_support: Large and Custom plans only
+
+plans:
+  - name: Free
+    monthly_cost: 0.00
+    annual_cost: 0.00
+    monthly_requests: 150
+    cost_per_request: 0.00
+    best_for: Development and testing
+
+  - name: Small
+    monthly_cost: 9.99
+    annual_cost: 95.90
+    monthly_requests: 65000
+    cost_per_request: 0.000154
+    best_for: Small applications with low traffic
+
+  - name: Medium
+    monthly_cost: 39.99
+    annual_cost: 383.90
+    monthly_requests: 650000
+    cost_per_request: 0.0000615
+    best_for: Growing applications needing security data
+
+  - name: Large
+    monthly_cost: 89.99
+    annual_cost: 863.90
+    monthly_requests: 2500000
+    cost_per_request: 0.000036
+    best_for: High-volume production applications
+
+  - name: Custom
+    monthly_cost: custom
+    annual_cost: custom
+    monthly_requests: custom
+    cost_per_request: custom
+    best_for: Enterprise customers exceeding 2.5M requests/month
+
+optimization_tips:
+  - Cache geolocation results for known IPs to avoid redundant lookups.
+  - Use the /v2/status endpoint (which does not count toward quota) to monitor remaining monthly requests.
+  - Use sandbox API keys (Medium and above) to test without consuming production quota.
+  - Choose yearly billing to save 20% compared to monthly billing.
+  - Use the language parameter only when localization is required to avoid unnecessary processing overhead.
+  - The Free plan rate limit (10 req/min) may bottleneck high-frequency testing — upgrade to Small for unlimited rate.
+  - Monitor security data usage: Security fields are only available on Medium plan and above.
+  - For batch lookups, consider caching results by IP prefix to reduce unique request counts.

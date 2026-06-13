@@ -1,0 +1,67 @@
+name: ipbase Rate Limits
+description: Rate limiting and quota policies for the ipbase IP geolocation API. Limits are enforced per API key and reset monthly. Paid plans have no per-minute rate limit.
+url: https://ipbase.com/docs/
+authentication:
+  - type: apikey
+    location: header
+    name: apikey
+  - type: apikey
+    location: query
+    name: apikey
+
+limits:
+
+  - plan: Free
+    monthly_requests: 150
+    rate_limit_per_minute: 10
+    api_keys: 1
+    notes: Suitable for development and testing only.
+
+  - plan: Small
+    monthly_requests: 65000
+    rate_limit_per_minute: none
+    api_keys: 1
+    notes: No per-minute rate limit enforced.
+
+  - plan: Medium
+    monthly_requests: 650000
+    rate_limit_per_minute: none
+    api_keys: 2
+    notes: Includes sandbox API keys for testing environments.
+
+  - plan: Large
+    monthly_requests: 2500000
+    rate_limit_per_minute: none
+    api_keys: 5
+    notes: Includes overage support and custom SLA. Supports IP and URL whitelisting.
+
+  - plan: Custom
+    monthly_requests: custom
+    rate_limit_per_minute: none
+    api_keys: custom
+    notes: Contact ipbase for custom volume and configuration.
+
+endpoints:
+  - name: IP Info
+    path: /v2/info
+    method: GET
+    description: Returns geolocation, timezone, connection, and security data for an IP address.
+    counts_toward_quota: true
+
+  - name: ASN Info
+    path: /v2/asn
+    method: GET
+    description: Returns ASN information and related IP ranges.
+    counts_toward_quota: true
+
+  - name: Domains
+    path: /v2/domains
+    method: GET
+    description: Returns domains hosted on a specific IP address.
+    counts_toward_quota: true
+
+  - name: Status
+    path: /v2/status
+    method: GET
+    description: Checks API quota usage and service availability.
+    counts_toward_quota: false
