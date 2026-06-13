@@ -1,0 +1,59 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebAPI",
+  "name": "ipbase IP Geolocation API",
+  "description": "ipbase is an IP geolocation REST API providing accurate location, currency, timezone, connection type, proxy/VPN detection, and security threat data for any IPv4 or IPv6 address. Operated by Everapi GmbH, the API serves businesses needing programmatic IP address intelligence for fraud detection, content localization, and data-driven decisions.",
+  "url": "https://ipbase.com",
+  "documentation": "https://ipbase.com/docs/",
+  "termsOfService": "https://ipbase.com/terms-of-service/",
+  "provider": {
+    "@type": "Organization",
+    "name": "Everapi GmbH",
+    "url": "https://ipbase.com",
+    "sameAs": [
+      "https://github.com/everapihq",
+      "https://twitter.com/everapi",
+      "https://www.linkedin.com/company/everapi/"
+    ]
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://ipbase.com/pricing/"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://api.ipbase.com/v2",
+    "serviceType": "REST API"
+  },
+  "applicationCategory": "DeveloperApplication",
+  "keywords": [
+    "IP Geolocation",
+    "IP Address",
+    "Geolocation",
+    "Security",
+    "VPN Detection",
+    "Proxy Detection",
+    "Timezone",
+    "Currency",
+    "ASN",
+    "Threat Intelligence"
+  ],
+  "featureList": [
+    "IPv4 and IPv6 geolocation",
+    "Timezone and UTC offset data",
+    "Currency information by location",
+    "ISP and ASN data",
+    "Proxy and VPN detection",
+    "Tor exit node detection",
+    "Security threat scoring",
+    "Reverse IP / domain lookup",
+    "ASN information lookup",
+    "Quota and rate limit status endpoint"
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "url": "https://ipbase.com"
+  },
+  "softwareVersion": "v2",
+  "dateModified": "2026-06-13"
+}
