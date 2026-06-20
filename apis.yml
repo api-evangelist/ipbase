@@ -1,7 +1,7 @@
 aid: ipbase
 name: ipbase
 description: ipbase is an IP geolocation REST API providing accurate location, currency, timezone, connection type, proxy/VPN detection, and security threat data for any IPv4 or IPv6 address. Operated by Everapi GmbH, the API serves businesses needing programmatic IP address intelligence for fraud detection, content localization, and data-driven decisions.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/ipbase/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -20,7 +20,7 @@ tags:
 apis:
   - name: ipbase IP Geolocation API
     description: REST API providing geolocation, timezone, currency, connection, and security data for IPv4 and IPv6 addresses. Returns location coordinates, city, region, country, ISP, ASN, proxy/VPN/Tor detection, and threat scores.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://ipbase.com
     baseURL: https://api.ipbase.com/v2
     tags:
