@@ -36,6 +36,8 @@ apis:
       - type: Pricing
         url: https://ipbase.com/pricing/
 common:
+  - type: DomainSecurity
+    url: security/ipbase-domain-security.yml
   - type: Website
     url: https://ipbase.com
   - type: Documentation
