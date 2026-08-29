@@ -1,6 +1,17 @@
 aid: ipbase
 name: ipbase
 description: ipbase is an IP geolocation REST API providing accurate location, currency, timezone, connection type, proxy/VPN detection, and security threat data for any IPv4 or IPv6 address. Operated by Everapi GmbH, the API serves businesses needing programmatic IP address intelligence for fraud detection, content localization, and data-driven decisions.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
