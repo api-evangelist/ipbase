@@ -16,12 +16,18 @@ deployment:
 tools_count: 4
 tools:
 - name: getInfo
-  description: ''
+  description: Returns geolocation, network, timezone, security and hosted-domain data for an IP address.
+    When `ip` is omitted, the caller's own IP is used.
 - name: getAsn
-  description: ''
+  description: Returns organization, ISP and announced IP ranges for an autonomous system number. Requires
+    a plan that includes the ASN endpoint.
 - name: getDomains
-  description: ''
+  description: Returns the domains hosted on a given IP address, cursor-paginated. Requires a plan that
+    includes the hosted domains endpoint.
 - name: getStatus
-  description: ''
+  description: Returns your current monthly and grace quota usage. Requests to this endpoint do not count
+    against your quota or rate limit.
 tools_source: live tools/list via initialize handshake, 2026-09-12 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
