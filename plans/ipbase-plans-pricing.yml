@@ -88,3 +88,42 @@ plans:
       - All Large Plan features
       - Custom Request Volume
       - Custom Configuration
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  - subscription
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Small
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Medium
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Large
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Custom
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
