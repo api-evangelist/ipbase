@@ -13,20 +13,39 @@ deployment:
   probe: live
   checked: '2026-09-11'
   source: docs-check 2026-09-12 (endpoint found in the provider's own documentation, then probed)
-tools_count: 4
+tools_count: 5
 tools:
 - name: getInfo
-  description: Returns geolocation, network, timezone, security and hosted-domain data for an IP address.
-    When `ip` is omitted, the caller's own IP is used.
+  description: 'Returns geolocation, network, timezone, security and hosted-domain data for an IP address.
+    When `ip` is omitted, the caller''s own IP is used. Paid plans also get the `network` object: anycast,
+    hosting, CDN, mobile carrier, carrier-grade NAT, satellite, privacy relay, the class of the announcing
+    AS number and the RPKI state of its route. Paid plans also get `company` and `abuse`: the holder of
+    the address block and its abuse contact, from the regional internet registries. `location` also says
+    how exact it is: `precision`, `accuracy_radius_km` and `confidence`.'
+- name: batchInfo
+  description: 'Looks up to 1,000 IPv4 or IPv6 addresses in one request with an API key (any plan, the
+    free one too; without a key it answers 401) and returns the same object as the single lookup for each,
+    keyed by address. Duplicates are looked up once. Each valid address costs one request (see `X-Cost`).
+    An item that is no IP address does not fail the batch: `errors` lists it with the reason, and it is
+    neither looked up nor billed; a batch is refused with 422 only when it has no single IP address, or
+    more addresses than allowed: up to 1,000 in a `POST` body with an API key (100 with a trial key).
+    A batch your quota cannot cover is refused with 429 before any lookup runs; `quota.required` is what
+    it needed. Private and reserved addresses come back with their `range_type` and without location data.
+    The `batchInfo` MCP tool takes up to 100 addresses a call. The same lookup also works as `GET /v2/batch?ips=80.110.0.1,8.8.8.8`,
+    with up to 100 addresses (more are refused with 422).'
 - name: getAsn
   description: Returns organization, ISP and announced IP ranges for an autonomous system number. Requires
-    a plan that includes the ASN endpoint.
+    a plan that includes the ASN endpoint. Paid plans also get its depth (class, registry, delegation
+    date, prefix counts, and its peers, upstreams and downstreams as inferred from BGP) and the RPKI states
+    of the prefixes it announces.
 - name: getDomains
   description: Returns the domains hosted on a given IP address, cursor-paginated. Requires a plan that
     includes the hosted domains endpoint.
 - name: getStatus
-  description: Returns your current monthly and grace quota usage. Requests to this endpoint do not count
-    against your quota or rate limit.
+  description: Returns your current monthly and grace quota usage and the plan of your API key's account.
+    With an API key, requests to this endpoint do not count against your quota or rate limit. Without
+    a key, it returns the keyless limit (`quotas.hour`), and the request counts against the 10 keyless
+    lookups an hour like any other.
 tools_source: live tools/list via initialize handshake, 2026-09-12 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
 descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
