@@ -1,0 +1,172 @@
+{
+  "endpoint": "https://api.ipbase.com/mcp",
+  "captured": "2026-10-20",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2025-06-18",
+  "server_info": {
+    "name": "ipbase",
+    "version": "2"
+  },
+  "result": {
+    "tools": [
+      {
+        "name": "getInfo",
+        "title": "Look up an IP address",
+        "description": "Returns geolocation, network, timezone, security and hosted-domain data for an IP address. When `ip` is omitted, the caller's own IP is used. Paid plans also get the `network` object: anycast, hosting, CDN, mobile carrier, carrier-grade NAT, satellite, privacy relay, the class of the announcing AS number and the RPKI state of its route. Paid plans also get `company` and `abuse`: the holder of the address block and its abuse contact, from the regional internet registries. `location` also says how exact it is: `precision`, `accuracy_radius_km` and `confidence`.",
+        "inputSchema": {
+          "properties": {
+            "ip": {
+              "description": "The IPv4 or IPv6 address to look up. Defaults to the requesting client's IP when omitted.",
+              "type": "string"
+            },
+            "language": {
+              "description": "Language for translated location names.",
+              "enum": [
+                "de",
+                "en",
+                "es",
+                "fr",
+                "ja",
+                "pt",
+                "ru",
+                "zh"
+              ],
+              "type": "string"
+            },
+            "hostname": {
+              "description": "When `true`, performs a reverse-DNS lookup and includes the `hostname` field. May add latency.",
+              "type": "boolean"
+            },
+            "fields": {
+              "description": "Comma-separated dot paths to return instead of the full object, e.g. `ip,location.country.alpha2,security` or `network.is_hosting,network.rpki_status`. Naming an object keeps it whole; unknown paths are ignored.",
+              "type": "string"
+            },
+            "user_agent": {
+              "description": "The `User-Agent` header your own visitor sent. With it, `security.bot.spoofed` says whether the address belongs to the operator of the bot that user agent claims to be (plans with security data). At most 512 characters. A query parameter ends up in URLs and access logs: for many addresses, send it in the body of `POST /v2/batch`.",
+              "type": "string"
+            },
+            "coarse_location": {
+              "description": "`omit` leaves the city out of the answer for an anycast address and for a coarse one (`location.precision` `coarse`: a mobile, carrier-grade NAT, satellite or relay network, whose users move between places the data cannot tell apart): the `city` names and IDs and `zip` are empty, the coordinates move to the centre of the region (of the country without one), `accuracy_radius_km` grows by the distance they moved and `confidence` is `null`. For the plans with the `network` object (paid plans); other callers may send it and get the city as without it. Left out, the city stays.",
+              "enum": [
+                "omit"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "annotations": {}
+      },
+      {
+        "name": "batchInfo",
+        "title": "Look up many IP addresses at once",
+        "description": "Looks up to 1,000 IPv4 or IPv6 addresses in one request with an API key (any plan, the free one too; without a key it answers 401) and returns the same object as the single lookup for each, keyed by address. Duplicates are looked up once. Each valid address costs one request (see `X-Cost`). An item that is no IP address does not fail the batch: `errors` lists it with the reason, and it is neither looked up nor billed; a batch is refused with 422 only when it has no single IP address, or more addresses than allowed: up to 1,000 in a `POST` body with an API key (100 with a trial key). A batch your quota cannot cover is refused with 429 before any lookup runs; `quota.required` is what it needed. Private and reserved addresses come back with their `range_type` and without location data. The `batchInfo` MCP tool takes up to 100 addresses a call. The same lookup also works as `GET /v2/batch?ips=80.110.0.1,8.8.8.8`, with up to 100 addresses (more are refused with 422).",
+        "inputSchema": {
+          "properties": {
+            "language": {
+              "description": "Language for translated location names.",
+              "enum": [
+                "de",
+                "en",
+                "es",
+                "fr",
+                "ja",
+                "pt",
+                "ru",
+                "zh"
+              ],
+              "type": "string"
+            },
+            "hostname": {
+              "description": "When `true`, looks up the reverse-DNS name of every address, in parallel within 8 seconds: each answer gets `hostname` (`null` without a name) and `hostname_status`.",
+              "type": "boolean"
+            },
+            "fields": {
+              "description": "Comma-separated dot paths to return instead of the full object, e.g. `ip,location.country.alpha2,security` or `network.is_hosting,network.rpki_status`. Naming an object keeps it whole; unknown paths are ignored.",
+              "type": "string"
+            },
+            "coarse_location": {
+              "description": "`omit` leaves the city out of the answer for an anycast address and for a coarse one (`location.precision` `coarse`: a mobile, carrier-grade NAT, satellite or relay network, whose users move between places the data cannot tell apart): the `city` names and IDs and `zip` are empty, the coordinates move to the centre of the region (of the country without one), `accuracy_radius_km` grows by the distance they moved and `confidence` is `null`. For the plans with the `network` object (paid plans); other callers may send it and get the city as without it. Left out, the city stays.",
+              "enum": [
+                "omit"
+              ],
+              "type": "string"
+            },
+            "ips": {
+              "description": "IPv4 or IPv6 addresses, up to 1,000. An item that is no IP address goes into `errors`.",
+              "minItems": 1,
+              "maxItems": 100,
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "user_agent": {
+              "description": "The `User-Agent` header your own visitor sent, one for every address of the batch. With it, `security.bot.spoofed` says whether each address belongs to the operator of the bot that user agent claims to be (plans with security data). At most 512 characters.",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "ips"
+          ]
+        },
+        "annotations": {}
+      },
+      {
+        "name": "getAsn",
+        "title": "Look up an ASN",
+        "description": "Returns organization, ISP and announced IP ranges for an autonomous system number. Requires a plan that includes the ASN endpoint. Paid plans also get its depth (class, registry, delegation date, prefix counts, and its peers, upstreams and downstreams as inferred from BGP) and the RPKI states of the prefixes it announces.",
+        "inputSchema": {
+          "properties": {
+            "asn": {
+              "description": "The autonomous system number, with or without the `AS` prefix (e.g. `AS13335` or `13335`).",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "asn"
+          ]
+        },
+        "annotations": {}
+      },
+      {
+        "name": "getDomains",
+        "title": "Domains hosted on an IP",
+        "description": "Returns the domains hosted on a given IP address, cursor-paginated. Requires a plan that includes the hosted domains endpoint.",
+        "inputSchema": {
+          "properties": {
+            "ip": {
+              "description": "The IPv4 address whose hosted domains to list (the data comes from A records, so IPv6 addresses get a 422).",
+              "type": "string"
+            },
+            "per_page": {
+              "description": "Number of domains per page (1-100).",
+              "type": "integer"
+            },
+            "cursor": {
+              "description": "Cursor token for pagination (from `next_page_url`).",
+              "type": "string"
+            }
+          },
+          "type": "object",
+          "required": [
+            "ip"
+          ]
+        },
+        "annotations": {}
+      },
+      {
+        "name": "getStatus",
+        "title": "Account quota status",
+        "description": "Returns your current monthly and grace quota usage and the plan of your API key's account. With an API key, requests to this endpoint do not count against your quota or rate limit. Without a key, it returns the keyless limit (`quotas.hour`), and the request counts against the 10 keyless lookups an hour like any other.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        },
+        "annotations": {}
+      }
+    ]
+  }
+}
