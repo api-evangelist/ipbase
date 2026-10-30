@@ -1,4 +1,4 @@
-# ipbase (ipbase)
+# ipbase
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,62 +66,110 @@
 
 ipbase is an IP geolocation REST API providing accurate location, currency, timezone, connection type, proxy/VPN detection, and security threat data for any IPv4 or IPv6 address. Operated by Everapi GmbH, the API serves businesses needing programmatic IP address intelligence for fraud detection, content localization, and data-driven decisions.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/ipbase/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/ipbase/refs/heads/main/apis.yml)
+**Areas:** IP Geolocation · IP Address · Geolocation · Security · VPN Detection · Proxy Detection · Timezone · Currency · ASN · Threat Intelligence
 
-## Tags
+## ipbase on APIs.io
 
-- IP Geolocation
-- IP Address
-- Geolocation
-- Security
-- VPN Detection
-- Proxy Detection
-- Timezone
-- Currency
-- ASN
-- Threat Intelligence
+Everything profiled for ipbase is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ipbase/](https://apis.io/providers/ipbase/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (1)
 
-- **Created:** 2026-06-13
-- **Modified:** 2026-06-13
+- [ipbase IP Geolocation API](https://apis.io/apis/ipbase/ipbase-ip-geolocation-api/) — REST API providing geolocation, timezone, currency, connection, and security data for IPv4 and IPv6 addresses. Returns location coordinates, city, region,…
 
-## APIs
+### Published properties
 
-### ipbase IP Geolocation API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API providing geolocation, timezone, currency, connection, and security data for IPv4 and IPv6 addresses. Returns location coordinates, city, region, country, ISP, ASN, proxy/VPN/Tor detection, and threat scores.
+#### MCP servers (1)
 
-- **Human URL:** [https://ipbase.com](https://ipbase.com)
-- **Base URL:** `https://api.ipbase.com/v2`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [ipbase](https://apis.io/servers/ipbase/ipbase/)
 
-- IP Geolocation
-- Security
-- Timezone
-- Currency
+#### Security (1)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://ipbase.com/docs/)
-- [OpenAPI](https://ipbase.com/docs/info) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Pricing](https://ipbase.com/pricing/)
+- [Ipbase Domain Security](https://apis.io/security/ipbase/ipbase-domain-security/)
 
-## Common Properties
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Ipbase Plans Pricing](https://apis.io/plans/ipbase/ipbase-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Ipbase Rate Limits](https://apis.io/rate-limits/ipbase/ipbase-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Ipbase Finops](https://apis.io/finops/ipbase/ipbase-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://ipbase.com)
 - [Documentation](https://ipbase.com/docs/)
-- [Git Hub Org](https://github.com/everapihq)
-- [LinkedIn](https://www.linkedin.com/company/everapi/)
 - [Pricing](https://ipbase.com/pricing/)
-- [Status Page](https://ipbase.freshstatus.io/)
-- [X (Twitter)](https://twitter.com/everapi)
-- [Plans](plans/ipbase-plans-pricing.yml)
-- [Rate Limits](rate-limits/ipbase-rate-limits.yml)
-- [Fin Ops](finops/ipbase-finops.yml)
+- [Status](https://ipbase.freshstatus.io/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 20.8** — emerging · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 24.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 18.4 |
+
+**Agent readiness 22.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ipbase/](https://apis.io/providers/ipbase/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ipbase: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ipbase/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
